@@ -1,0 +1,53 @@
+gastos_dependentes(250).
+
+dependentes(5).
+
+ganhos(estavel).
+
+salario(13000).
+
+aluguel(0).
+
+experiencia(sim).
+
+cartao_credito(3500).
+
+valor_investido(1500).
+
+estimativa_de_retorno(24). %em meses
+
+prazo_retorno(curto_prazo) :- estimativa_de_retorno(ER), ER<6.
+
+prazo_retorno(longo_prazo) :- \+prazo_retorno(curto_prazo).
+
+investimento_mensal(75).
+
+tesouro_minimo(possivel) :- valor_investido(X), X>=40.
+
+tesouro_minimo(impossivel) :- \+tesouro_minimo(possivel).
+
+gastos_mensais(K) :- aluguel(A), dependentes(D), gastos_dependentes(GD),cartao_credito(CA), K is (GD*D)+A+CA.
+
+saldo(adequado) :- salario(SA), gastos_mensais(K), investimento_mensal(IM),  SA-K-IM>=0.
+
+saldo(inadequado) :- \+saldo(adequado).
+
+investimento_status(adequado) :- salario(S), investimento_mensal(IM), (S*0.15)>IM.
+
+investimento_status(inadequado) :- \+investimento_status(adequado).
+
+aptidao_a_investimento(sim) :- saldo(adequado), investimento_mensal(IM), valor_investido(VI), (IM>0; VI>0), investimento_status(adequado).
+
+aptidao_a_investimento(nao) :- \+aptidao_a_investimento(sim).
+
+risco(alto) :- saldo(inadequado), ganhos(instavel); aptidao_a_investimento(nao).
+
+risco(baixo) :- \+risco(alto).
+
+investimento(impossivel) :- risco(alto), tesouro_minimo(impossivel), aptidao_a_investimento(nao).
+
+investimento(tesouro) :- tesouro_minimo(possivel), prazo_retorno(longo_prazo), aptidao_a_investimento(sim).
+
+investimento(acoes) :- risco(baixo), aptidao_a_investimento(sim), experiencia(sim).
+
+investimento(impossivel) :- \+investimento(acoes), \+investimento(tesouro).
