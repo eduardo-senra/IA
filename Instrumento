@@ -1,0 +1,40 @@
+quer_ser_musico_profissional('NAO').
+voce_e_rico('NAO').
+voce_gosta_de_dinheiro('SIM').
+voce_gosta_de_curtir_a_vida('SIM').
+voce_vai_praticar_8_horas_por_dia('NAO').
+voce_gosta_de_ensinar_criancas('NAO').
+quer_pegar_algumas_garotas('SIM').
+quer_pegar_alguns_caras('NAO').
+voce_e_gay('NAO').
+voce_gosta_de_garotas_faceis('SIM').
+voce_gosta_de_beber_cerveja('SIM').
+voce_e_uma_pessoa_quente('SIM').
+voce_e_um_bebado('NAO').
+quer_tocar_musica_classica('NAO').
+quer_tocar_dia_e_noite('SIM').
+quer_ter_problemas_para_arrumar_emprego_mesmo_tocando_perfeitamente('NAO').
+voce_e_alemao('NAO').
+quer_tocar_jazz('NAO').
+voce_sabe_ler_notas('SIM').
+
+
+instrumento(violino):- voce_gosta_de_ensinar_criancas('NAO'), voce_vai_praticar_8_horas_por_dia('SIM'), voce_gosta_de_curtir_a_vida('NAO'), voce_gosta_de_dinheiro('NAO'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(pare_com_essa_loucura_de_ser_musico):- voce_gosta_de_dinheiro('SIM'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(flauta):- voce_gosta_de_ensinar_criancas('SIM'), voce_vai_praticar_8_horas_por_dia('SIM'), voce_gosta_de_curtir_a_vida('NAO'), voce_gosta_de_dinheiro('NAO'), voce_e_rico('NAO'), quer_ser_musico_profissional('SIM').
+instrumento(viola):- voce_sabe_ler_notas('NAO'), voce_vai_praticar_8_horas_por_dia('NAO'), voce_gosta_de_curtir_a_vida('NAO'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(harpa):- voce_sabe_ler_notas('SIM'), voce_vai_praticar_8_horas_por_dia('NAO'), voce_gosta_de_curtir_a_vida('NAO'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(cello):- voce_e_uma_pessoa_quente('SIM'), voce_gosta_de_beber_cerveja('NAO'), voce_gosta_de_curtir_a_vida('SIM'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(bandolim):- voce_e_uma_pessoa_quente('NAO'), voce_gosta_de_beber_cerveja('NAO'), voce_gosta_de_curtir_a_vida('SIM'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(fagote):- quer_pegar_alguns_caras('NAO'), quer_pegar_algumas_garotas('NAO'), quer_ser_musico_profissional('NAO').
+instrumento(bateria):- voce_e_gay('NAO'), (quer_pegar_alguns_caras('SIM'), quer_pegar_algumas_garotas('NAO') ; voce_gosta_de_garotas_faceis('NAO'), quer_pegar_algumas_garotas('SIM')), quer_ser_musico_profissional('NAO').
+instrumento(canto_de_opera):- voce_e_gay('SIM'), (quer_pegar_alguns_caras('SIM'), quer_pegar_algumas_garotas('NAO') ; voce_gosta_de_garotas_faceis('NAO'), quer_pegar_algumas_garotas('SIM')), quer_ser_musico_profissional('NAO').
+instrumento(guitarra):- quer_ser_musico_profissional('NAO'), quer_pegar_algumas_garotas('SIM'), voce_gosta_de_garotas_faceis('SIM'), voce_e_um_bebado('SIM').
+instrumento(piano):- quer_ser_musico_profissional('NAO'), quer_pegar_algumas_garotas('SIM'), voce_gosta_de_garotas_faceis('SIM'), voce_e_um_bebado('NAO').
+instrumento(clarinete):- quer_ter_problemas_para_arrumar_emprego_mesmo_tocando_perfeitamente('SIM'), quer_tocar_dia_e_noite('NAO'), quer_tocar_musica_classica('SIM'), voce_gosta_de_beber_cerveja('SIM'), voce_gosta_de_curtir_a_vida('SIM'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(trompa):- quer_ter_problemas_para_arrumar_emprego_mesmo_tocando_perfeitamente('NAO'), quer_tocar_dia_e_noite('NAO'), quer_tocar_musica_classica('SIM'), voce_gosta_de_beber_cerveja('SIM'), voce_gosta_de_curtir_a_vida('SIM'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(oboe):- quer_tocar_dia_e_noite('SIM'), quer_tocar_musica_classica('SIM'), voce_gosta_de_beber_cerveja('SIM'), voce_gosta_de_curtir_a_vida('SIM'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(trombone):- quer_tocar_musica_classica('NAO SEI'), voce_gosta_de_beber_cerveja('SIM'), voce_gosta_de_curtir_a_vida('SIM'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(sax):- quer_tocar_jazz('SIM'), quer_tocar_musica_classica('NAO'), voce_gosta_de_beber_cerveja('SIM'), voce_gosta_de_curtir_a_vida('SIM'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(trompete):- voce_e_alemao('SIM'), quer_tocar_jazz('NAO'), quer_tocar_musica_classica('NAO'), voce_gosta_de_beber_cerveja('SIM'), voce_gosta_de_curtir_a_vida('SIM'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
+instrumento(didgeridoo):- voce_e_alemao('NAO'), quer_tocar_jazz('NAO'), quer_tocar_musica_classica('NAO'), voce_gosta_de_beber_cerveja('SIM'), voce_gosta_de_curtir_a_vida('SIM'), (voce_e_rico('NAO'), voce_gosta_de_dinheiro('NAO')) ; voce_e_rico('SIM'), quer_ser_musico_profissional('SIM').
